@@ -1,9 +1,10 @@
-function App() {
-  return (
-    <>
-      <h1> Happy coding! </h1>
-    </>
-  )
-}
+import React from 'react';
+import AllTasks from './components/AllTasks';
 
-export default App
+const App = () => {
+  return (
+    <AllTasks/>
+  );
+};
+
+export default App;
