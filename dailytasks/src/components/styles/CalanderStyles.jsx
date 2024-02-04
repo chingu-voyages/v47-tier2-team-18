@@ -5,10 +5,9 @@ export const CalanderWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(6, 1fr);
-
+  border: 1px solid black;
 `;
 
 export const Cell = styled.div`
-  padding: 2rem;
-  border: 1px soild black;
+  border: 1px solid black;
 `;
