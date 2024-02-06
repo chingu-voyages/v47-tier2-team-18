@@ -5,6 +5,9 @@ function Calander() {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
+  //CAN BE USED TO TEST AND GENERATE DIFFERENT DATES
+  //modify the new Date() obj and pass it a year and a month to generate a different calander
+  //ex: new Date(2024, 0) will generate a calander for the month of january 2024
   const today = new Date()
   const year = today.getFullYear()
   const month = months[today.getMonth()]
