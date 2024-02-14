@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import AllTasks from "./components/AllTasks.jsx";
 import Calander from "./components/Calander.jsx";
+import ErrorPage from "./components/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { path: "calendar", element: <Calander /> },
     ],
     // TODO -- Create errorElement to handle bad urls
+    errorElement: <ErrorPage />,
   },
 ]);
 
