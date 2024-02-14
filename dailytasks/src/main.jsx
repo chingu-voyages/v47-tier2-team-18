@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// import AllTasks from "./components/AllTasks.jsx";
 import Calander from "./components/Calander.jsx";
 
 const router = createBrowserRouter([
@@ -9,10 +10,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      {
-        path: "calendar",
-        element: <Calander />,
-      },
+      // { index: true, element: <AllTasks /> },
+      { path: "calendar", element: <Calander /> },
     ],
     // TODO -- Create errorElement to handle bad urls
   },
