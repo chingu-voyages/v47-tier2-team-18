@@ -1,4 +1,3 @@
-import React from 'react';
 import Category from './Category';
 import tasksData from '../data/tasks-example.json';
 import { AllTasksWrapper } from './styles/AllTasksStyles';
