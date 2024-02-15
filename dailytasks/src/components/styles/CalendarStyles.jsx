@@ -14,12 +14,18 @@ export const CalendarGrid = styled.div`
 export const DateWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  border: 1px solid transparent;
   padding: 1rem;
+
+  &:hover{
+    border: 1px solid black;
+    cursor: pointer;
+  }
 `;
 
 export const CellDate = styled.div`
   align-self: center;
-
+  
 `;
 
 export const Tasks = styled.div`

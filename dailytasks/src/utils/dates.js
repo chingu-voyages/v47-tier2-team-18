@@ -9,35 +9,46 @@ export function transformTasks(){
     tasksData.forEach( category => {
       category.activityTypes.forEach( activity => {
         activity.Tasks.forEach( task => {
-          task.days.forEach( day => {
+          task.days.forEach( day => {    
+
             //if the key doesn't exist create a default one
             if(!transformTaskObj[day]){
               transformTaskObj[day] = {
                 count: 0,
+                "categories": []
+              }
+            }
+
+            let temp_pointer = transformTaskObj[day]
+              .categories.find(cur_cat => cur_cat.categoryName == category.categoryName)      
+            
+            if(!temp_pointer){
+              temp_pointer = {
                 "categoryName": category.categoryName,
                 "activityTypes": []
               }
+
+              transformTaskObj[day].categories.push(temp_pointer)
             }
 
-            let findActivityName = transformTaskObj[day].activityTypes.find( task_activity => task_activity.activityName == activity.activityName)
-            let task_copy = { ...task }
-            delete task_copy.days
-            transformTaskObj[day].count++
-            
-            if(!findActivityName){
-              let task_copy = { ...task }
-              delete task_copy.days
+            let findActivity = temp_pointer["activityTypes"]
+                                .find( curr_activity => curr_activity.activityName == activity.activityName )
 
-              let newActivity = {
+            if(!findActivity){
+              let temp_activity = {
                 "activityName": activity.activityName,
-                "Tasks": [task_copy]
+                "Tasks":[]
               }
 
-              transformTaskObj[day].activityTypes.push(newActivity)
+              temp_pointer["activityTypes"].push(temp_activity)
+              findActivity = temp_activity
             }
-            else{
-              findActivityName["Tasks"].push(task_copy)
-            }
+            
+            const task_copy = {...task }
+            delete task_copy["days"]
+
+            findActivity["Tasks"].push(task_copy)
+            transformTaskObj[day].count += 1
           })
         } )
       })
@@ -45,6 +56,9 @@ export function transformTasks(){
 
     return transformTaskObj
   }
+
+export const tasks = transformTasks()
+
 
 export function findDateTasksCount(date){
   const tasks = transformTasks()
@@ -56,6 +70,23 @@ export function findDateTasksCount(date){
   let temp_2 = tasks[day] ? tasks[day].count : 0
 
   return temp_1 + temp_2
+}
+
+export function getTaskData(date){
+  const tasks = transformTasks()
+  const { year, month_num } = todayDateInfo()
+  const date_obj = new Date(year, month_num, date)
+  let day = lowerFirstLetter(days[date_obj.getDay()])
+
+  let temp_1 = tasks[date] ? tasks[date] : {count: 0, categories: []}
+  let temp_2 = tasks[day] ? tasks[day] : {count: 0, categories: []}
+  
+  return {
+    count: temp_1.count + temp_2.count,
+    categories: [
+      [...temp_1.categories, ...temp_2.categories]
+    ]
+  }
 }
 
 export function todayDateInfo(){

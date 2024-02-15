@@ -1,17 +1,19 @@
 import { DateWrapper, CellDate, Tasks } from "./styles/CalendarStyles"
 import { findDateTasksCount, todayDateInfo } from '../utils/dates.js'
 
-function DateCell({ date, row, column }) {
+function DateCell({ date, row, column, onClick }) {
   const { current_day } = todayDateInfo()
   const totalTasks = findDateTasksCount(date)
   const dayStyle = {
-    border: current_day == date ? "1px solid black" : "none",
     gridArea: `${row} / ${column} / ${row + 1} / ${column + 1}`
   }
 
+  if(current_day == date){
+    dayStyle["border"] = "1px solid black"
+  }
 
   return (
-    <DateWrapper key={`date-${date}`} style={dayStyle}>
+    <DateWrapper key={`date-${date}`} style={dayStyle} onClick={onClick}>
       <CellDate>{date}</CellDate>
       <Tasks>{totalTasks} tasks</Tasks>
     </DateWrapper>
