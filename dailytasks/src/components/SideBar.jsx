@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { NavLinks, NavList, NavWrapper } from "./styles/Nav.styled";
 
 const SideBar = () => {
@@ -5,24 +6,24 @@ const SideBar = () => {
     <NavWrapper>
       <NavList>
         <NavLinks>
-          <a href="#">
+          <Link to="">
             <button>Agenda</button>
-          </a>
+          </Link>
         </NavLinks>
         <NavLinks>
-          <a href="#">
+          <Link to="/calendar">
             <button>Weekly</button>
-          </a>
+          </Link>
         </NavLinks>
         <NavLinks>
-          <a href="#">
+          <Link to="">
             <button>Tasks</button>
-          </a>
+          </Link>
         </NavLinks>
         <NavLinks>
-          <a href="#">
+          <Link to="">
             <button>Search</button>
-          </a>
+          </Link>
         </NavLinks>
       </NavList>
     </NavWrapper>
