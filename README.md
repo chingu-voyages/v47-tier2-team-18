@@ -12,6 +12,7 @@ This app is part of a shared project created by Team 18 for Voyage 47 of the Chi
 ## Technologies Used
 
 - React.js
+- React Router
 - JavaScript
 - Styled Components
 - Git & GitHub (for version control)
