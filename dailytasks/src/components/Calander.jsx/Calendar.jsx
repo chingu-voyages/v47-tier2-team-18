@@ -1,6 +1,6 @@
-import { CalendarWrapper, CalendarGrid, MonthHeader } from "./styles/CalendarStyles"
-import { todayDateInfo } from '../utils/dates.js'
-import CalanderHeader from "./styles/CalanderHeader.jsx"
+import { CalendarWrapper, CalendarGrid, MonthHeader } from "../styles/CalendarStyles.jsx"
+import { todayDateInfo } from '../../utils/dates.js'
+import CalanderHeader from "../styles/CalanderHeader.jsx"
 import CalanderDates from "./CalanderDates.jsx"
 
 function Calendar() {

@@ -7,7 +7,7 @@ const Task = ({ task }) => {
   return (
     <TaskWrapper>
         <h4>{taskName}</h4>
-        {taskDescription && <p><div className='task-description'>Task Description:</div> {taskDescription}</p>}
+        {taskDescription && <div><div className='task-description'>Task Description:</div> {taskDescription}</div>}
     </TaskWrapper>
   );
 };

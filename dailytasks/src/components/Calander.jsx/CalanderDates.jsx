@@ -1,5 +1,5 @@
 import DateCell from "./DateCell"
-import { todayDateInfo, getTaskData } from "../utils/dates"
+import { todayDateInfo, getTaskData, tasks } from "../../utils/dates"
 
 function CalanderDates() {
   //get the total number of days in the month and determine what day the first day of the month 
@@ -10,11 +10,6 @@ function CalanderDates() {
   let row = 2
   let column = firstdayofMonth + 1
 
-  function showData(date){
-    const tasks = getTaskData(date)
-    console.log(tasks)
-  }
-
   //creates the calander days cells
   for(let date = 1; date <= daysInMonth; date++){
     const cell = <DateCell 
@@ -23,7 +18,6 @@ function CalanderDates() {
                   column={column} 
                   date={date} 
                   current_day={current_day}
-                  onClick={() => showData(date)}
                 />
     cell.even
     daysCells.push(cell)

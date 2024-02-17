@@ -4,6 +4,7 @@ import { CategoryWrapper } from './styles/CategoryStyles';
 
 const Category = ({ category }) => {
   const { categoryName, activityTypes } = category;
+  console.log(category)
 
   return (
     <CategoryWrapper>

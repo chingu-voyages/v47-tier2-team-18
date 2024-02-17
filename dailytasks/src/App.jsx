@@ -1,10 +1,15 @@
 import React from 'react';
 import AllTasks from './components/AllTasks';
-import Calendar from './components/Calendar';
+import Calendar from './components/Calander.jsx/Calendar';
+import { Route, Routes } from "react-router-dom"
 
 const App = () => {
   return (
-    <Calendar />
+    <Routes>
+      <Route path='/' element={<Calendar/> }/>
+      <Route path='/tasks' element={<AllTasks />} />
+      <Route path='*' element={<Calendar />} />
+    </Routes>
   );
 };
 

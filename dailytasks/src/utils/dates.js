@@ -80,12 +80,12 @@ export function getTaskData(date){
 
   let temp_1 = tasks[date] ? tasks[date] : {count: 0, categories: []}
   let temp_2 = tasks[day] ? tasks[day] : {count: 0, categories: []}
+
+  console.log("TEMPS:", temp_1, temp_2, [...temp_1.categories, ...temp_2.categories])
   
   return {
     count: temp_1.count + temp_2.count,
-    categories: [
-      [...temp_1.categories, ...temp_2.categories]
-    ]
+    categories: [...temp_1.categories, ...temp_2.categories]
   }
 }
 
