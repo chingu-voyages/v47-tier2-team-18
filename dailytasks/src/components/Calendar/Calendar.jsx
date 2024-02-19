@@ -1,7 +1,7 @@
 import { CalendarWrapper, CalendarGrid, MonthHeader } from "../styles/CalendarStyles.jsx"
 import { todayDateInfo } from '../../utils/dates.js'
-import CalanderHeader from "../styles/CalanderHeader.jsx"
-import CalanderDates from "./CalanderDates.jsx"
+import CalanderHeader from "../styles/CalendarHeader.jsx"
+import CalanderDates from "./CalendarDates.jsx"
 
 function Calendar() {
   //will be used to render the correct month and days

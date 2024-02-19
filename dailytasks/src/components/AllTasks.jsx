@@ -9,7 +9,7 @@ const AllTasks = () => {
   let tasks = state ? state.tasks.tasks : undefined
 
   return (
-    <>
+    <>Calendar
       {tasks ?
       <AllTasksWrapper>
         {tasks.map((task, index) => (

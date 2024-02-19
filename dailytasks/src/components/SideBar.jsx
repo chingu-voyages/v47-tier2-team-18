@@ -16,7 +16,7 @@ const SideBar = () => {
           </Link>
         </NavLinks>
         <NavLinks>
-          <Link to="">
+          <Link to="/tasks">
             <button>Tasks</button>
           </Link>
         </NavLinks>
