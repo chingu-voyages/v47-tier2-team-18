@@ -1,21 +1,28 @@
-import React from 'react';
-import tasksData from '../data/tasks-example.json'
-import { AllTasksWrapper, TaskWrapper } from './styles/AllTasksStyles';
+import tasksData from '../data/tasks-example.json';
+import { AllTasksWrapper } from './styles/AllTasksStyles';
+import { useLocation } from 'react-router-dom';
+import Task from './Task';
 
 const AllTasks = () => {
+  let {state} = useLocation();
+  console.log(state)
+  let tasks = state ? state.tasks.tasks : undefined
+
   return (
-    <AllTasksWrapper>
-      {tasksData.map((task, index) => (
-        <TaskWrapper key={index}>
-          <h4>{task.taskName}</h4>
-          {task.taskDescription && (
-            <p>
-              <div className='task-description'>Task Description:</div> {task.taskDescription}
-            </p>
-          )}
-        </TaskWrapper>
-      ))}
-    </AllTasksWrapper>
+    <>Calendar
+      {tasks ?
+      <AllTasksWrapper>
+        {tasks.map((task, index) => (
+          <Task key={index} task={task} index={index}/>
+        ))}
+      </AllTasksWrapper>
+      :
+      <AllTasksWrapper>
+        {tasksData.map((task, index) => (
+          <Task key={index} task={task} index={index} />
+        ))}
+      </AllTasksWrapper>}
+  </>
   );
 };
 
