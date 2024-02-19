@@ -1,6 +1,6 @@
 import Sidebar from "./components/SideBar";
 import { Outlet } from "react-router-dom";
-import GlobalStyle from "./components/styles/globalStyles";
+import GlobalStyle from "./components/styles/GlobalStyles";
 import {
   AppWrapper,
   ContentWrapper,
