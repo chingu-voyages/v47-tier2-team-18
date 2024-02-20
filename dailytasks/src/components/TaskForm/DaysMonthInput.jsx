@@ -1,4 +1,10 @@
 import { useState } from "react";
+import {
+  FlexColumn,
+  FlexRow,
+  Invalid,
+  TaskInput,
+} from "../styles/TaskForm.styled";
 
 const DaysMonthInput = ({ updateDaysArray }) => {
   const [day, setDay] = useState("");
@@ -25,12 +31,14 @@ const DaysMonthInput = ({ updateDaysArray }) => {
   };
 
   return (
-    <>
-      <label htmlFor="day-month">Day of the Month</label>
-      {greaterThan ? <div>Cannot be Greater than 31</div> : null}
-      {lessThan ? <div>Cannot be less than 1</div> : null}
-      <input type="number" max={31} value={day} onChange={addDays} />
-    </>
+    <FlexColumn>
+      <FlexRow justifyContent={"space-between"}>
+        <label htmlFor="day-month">Day of the Month</label>
+        {greaterThan && <Invalid>Cannot be Greater than 31</Invalid>}
+        {lessThan && <Invalid>Cannot be less than 1</Invalid>}
+      </FlexRow>
+      <TaskInput type="number" max={31} value={day} onChange={addDays} />
+    </FlexColumn>
   );
 };
 export default DaysMonthInput;

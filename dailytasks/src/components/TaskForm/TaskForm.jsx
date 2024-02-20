@@ -3,6 +3,16 @@ import Data from "../../data/tasks-example.json";
 import DaysWeekCheckBox from "./DaysWeekCheckBox";
 import DaysMonthInput from "./DaysMonthInput";
 import { useNavigate } from "react-router-dom";
+import {
+  FlexColumn,
+  Invalid,
+  FlexRow,
+  TaskFormWrapper,
+  TaskInput,
+  TaskTextArea,
+  AddTaskButton,
+  TaskAdded,
+} from "../styles/TaskForm.styled";
 
 const TaskForm = () => {
   const navigate = useNavigate();
@@ -86,67 +96,74 @@ const TaskForm = () => {
   return (
     <>
       {taskAdded ? (
-        <div>Task Added</div>
+        <TaskAdded>Task Added</TaskAdded>
       ) : (
-        <form action="">
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <label htmlFor="task-name">Task Name</label>
-            {invalidTaskName && <div>Task name must not be empty</div>}
-            <input
-              type="text"
-              name="task-name"
-              id="task-name"
-              value={taskName}
-              onChange={(event) => setTaskName(event.target.value)}
-              required
-            />
-          </div>
+        <TaskFormWrapper>
+          <form action="">
+            <FlexColumn>
+              <FlexRow justifyContent={"space-between"}>
+                <label htmlFor="task-name">Task Name</label>
+                {invalidTaskName && (
+                  <Invalid>Task name must not be empty</Invalid>
+                )}
+              </FlexRow>
+              <TaskInput
+                type="text"
+                name="task-name"
+                id="task-name"
+                value={taskName}
+                onChange={(event) => setTaskName(event.target.value)}
+                required
+              />
+            </FlexColumn>
+            <FlexColumn>
+              <FlexRow justifyContent={"space-between"}>
+                <label htmlFor="description">Description</label>
+                {invalidTaskDescription && (
+                  <Invalid>Task description must not be empty</Invalid>
+                )}
+              </FlexRow>
+              <TaskTextArea
+                name="description"
+                id="description"
+                value={taskDescription}
+                onChange={(event) => setTaskDescription(event.target.value)}
+              />
+            </FlexColumn>
 
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <label htmlFor="description">Description</label>
-            {invalidTaskDescription && (
-              <div>Task description must not be empty</div>
+            <FlexRow marginBottom={"0.5rem"}>
+              <div>
+                <input
+                  type="radio"
+                  name="frequency"
+                  id="day-week"
+                  value="day-week"
+                  onChange={handleFrequencyToggle}
+                  checked={frequencyToggle}
+                />
+                <label htmlFor="day-week">Weekly</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="frequency"
+                  id="day-month"
+                  value="day-month"
+                  onChange={handleFrequencyToggle}
+                />
+                <label htmlFor="day-month">Monthly</label>
+              </div>
+            </FlexRow>
+
+            {invalidTaskDays && <Invalid>Must select a day</Invalid>}
+            {frequencyToggle ? (
+              <DaysWeekCheckBox onChange={addDays} />
+            ) : (
+              <DaysMonthInput updateDaysArray={setTaskDays} />
             )}
-            <textarea
-              name="description"
-              id="description"
-              value={taskDescription}
-              onChange={(event) => setTaskDescription(event.target.value)}
-            />
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              name="frequency"
-              id="day-week"
-              value="day-week"
-              onChange={handleFrequencyToggle}
-              checked={frequencyToggle}
-            />
-            <label htmlFor="day-week">Day of the Week</label>
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              name="frequency"
-              id="day-month"
-              value="day-month"
-              onChange={handleFrequencyToggle}
-            />
-            <label htmlFor="day-month">Day of the Month</label>
-          </div>
-
-          {invalidTaskDays && <div>Must select a day</div>}
-          {frequencyToggle ? (
-            <DaysWeekCheckBox onChange={addDays} />
-          ) : (
-            <DaysMonthInput updateDaysArray={setTaskDays} />
-          )}
-
-          <button onClick={addTask}>Add</button>
-        </form>
+            <AddTaskButton onClick={addTask}>Add</AddTaskButton>
+          </form>
+        </TaskFormWrapper>
       )}
     </>
   );
