@@ -8,6 +8,7 @@ import {
   HeaderWrapper,
   NavigationWrapper,
 } from "./components/styles/App.styled";
+import AddTaskLink from "./components/AddTaskLink";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
         <FooterWrapper>
           <div>Temp Footer</div>
         </FooterWrapper>
+        <AddTaskLink />
       </AppWrapper>
     </>
   );
