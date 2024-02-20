@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TaskLink = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 2rem;
   left: 2rem;
 
