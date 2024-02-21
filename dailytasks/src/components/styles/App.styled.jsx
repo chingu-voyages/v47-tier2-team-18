@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 //Define the grid
 export const AppWrapper = styled.div`
+  position: relative;
   display: grid;
   grid-template:
     "navigation header" auto
