@@ -1,4 +1,5 @@
 import Sidebar from "./components/SideBar";
+import Footer from "./components/Footer";
 import { Outlet } from "react-router-dom";
 import GlobalStyle from "./components/styles/GlobalStyles";
 import {
@@ -28,7 +29,7 @@ const App = () => {
         </ContentWrapper>
         {/* TODO -- replace with actual footer component */}
         <FooterWrapper>
-          <div>Temp Footer</div>
+          <Footer />
         </FooterWrapper>
         <AddTaskLink />
       </AppWrapper>
