@@ -1,8 +1,7 @@
-import { DateWrapper, CellDate, Tasks } from "../styles/CalendarStyles.jsx"
+import { LinkContainer, CellDate, Tasks } from "../styles/CalendarStyles.jsx"
 import { findDateTasksCount, todayDateInfo, getTaskData } from '../../utils/dates.js'
-import { useNavigate, Link } from "react-router-dom";
 
-function DateCell({ date, row, column, onClick }) {
+function DateCell({ date, row, column }) {
   const { current_day } = todayDateInfo()
   const totalTasks = findDateTasksCount(date)
   const tasks = getTaskData(date)
@@ -15,12 +14,10 @@ function DateCell({ date, row, column, onClick }) {
   }
 
   return (
-    <DateWrapper key={`date-${date}`} style={dayStyle} onClick={onClick}>
-      <Link to="/tasks" state={{ tasks }}>
-        <CellDate>{date}</CellDate>
-        <Tasks>{totalTasks} tasks</Tasks>
-      </Link>
-    </DateWrapper>
+    <LinkContainer to="/tasks" state={{ tasks }} key={`date-${date}`} style={dayStyle}>
+      <CellDate>{date}</CellDate>
+      <Tasks>{totalTasks} tasks</Tasks>
+    </LinkContainer>
   )
 }
 
