@@ -12,6 +12,7 @@ export const LinkContainer = styled(Link)`
   flex-direction: column;
   border: 1px solid transparent;
   padding: 1rem;
+  text-decoration: none;
 
   &:hover{
     border: 1px solid black;

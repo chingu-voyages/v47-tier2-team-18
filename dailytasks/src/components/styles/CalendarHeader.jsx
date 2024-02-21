@@ -1,4 +1,3 @@
-import { DateWrapper } from "./CalendarStyles"
 import { days } from "../../utils/dates"
 
 function CalanderHeader() {
@@ -12,7 +11,7 @@ function CalanderHeader() {
           gridArea: `${row} / ${column} / ${row + 1} / ${column + 1}`
         }
     
-        const cell = <DateWrapper style={dayStyle} key={day}>{ day }</DateWrapper>
+        const cell = <div style={dayStyle} key={day}>{ day }</div>
         headers.push(cell)
         column++
       })
