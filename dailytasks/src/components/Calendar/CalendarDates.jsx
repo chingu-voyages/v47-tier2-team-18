@@ -1,5 +1,5 @@
 import DateCell from "./DateCell"
-import { todayDateInfo, getTaskData, tasks } from "../../utils/dates"
+import { todayDateInfo } from "../../utils/dates"
 
 function CalanderDates() {
   //get the total number of days in the month and determine what day the first day of the month 
