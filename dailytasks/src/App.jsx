@@ -10,10 +10,15 @@ import {
   NavigationWrapper,
 } from "./components/styles/App.styled";
 import AddTaskLink from "./components/AddTaskLink";
+import { TaskContext } from "./data/TaskContext";
+import { useState } from "react";
+import Data from "./data/tasks-example.json";
 
 const App = () => {
+  const [data, setData] = useState(Data);
+
   return (
-    <>
+    <TaskContext.Provider value={[data, setData]}>
       {/* Apply global styles to all components in the app */}
       <GlobalStyle />
       <AppWrapper>
@@ -33,9 +38,8 @@ const App = () => {
         </FooterWrapper>
         <AddTaskLink />
       </AppWrapper>
-    </>
+    </TaskContext.Provider>
   );
 };
 
 export default App;
-
