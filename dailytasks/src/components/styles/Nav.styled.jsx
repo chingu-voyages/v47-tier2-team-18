@@ -3,7 +3,6 @@ import styled from "styled-components";
 // Styled nav element
 export const NavWrapper = styled.nav`
   // TEMP HEIGHT - change once full app is assembled
-  height: 100vh;
 
   padding: 3rem 2rem;
   border-radius: 0 1.5rem;
