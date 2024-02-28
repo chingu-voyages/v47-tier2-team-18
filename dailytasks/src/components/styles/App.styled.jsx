@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 //Define the grid
 export const AppWrapper = styled.div`
+  height: 100vh;
   position: relative;
   display: grid;
   grid-template:
     "navigation header" auto
     "navigation content" 1fr
-    "navigation footer" auto
+    "footer footer" auto
     / auto 1fr;
 `;
 
