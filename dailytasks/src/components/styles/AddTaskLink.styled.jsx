@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const TaskLink = styled.div`
   position: fixed;
-  bottom: 2rem;
+  bottom: 10rem;
   left: 2rem;
 
   button {
