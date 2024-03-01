@@ -13,8 +13,8 @@ export const FlexColumn = styled.div`
 export const FlexRow = styled.div`
   display: flex;
   gap: 1rem;
-  justify-content: ${(props) => props.justifyContent};
-  margin-bottom: ${(props) => props.marginBottom};
+  justify-content: ${(props) => props.$justifyContent};
+  margin-bottom: ${(props) => props.$marginBottom};
 `;
 
 export const TaskInput = styled.input`

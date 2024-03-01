@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Data from "../../data/tasks-example.json";
 import DaysWeekCheckBox from "./DaysWeekCheckBox";
 import DaysMonthInput from "./DaysMonthInput";
@@ -13,12 +13,13 @@ import {
   AddTaskButton,
   TaskAdded,
 } from "../styles/TaskForm.styled";
+import { TaskContext } from "../../data/TaskContext";
 
 const TaskForm = () => {
   const navigate = useNavigate();
 
   // Create the necessary states
-  const [taskArray, setTaskArray] = useState(Data);
+  const [taskArray, setTaskArray] = useContext(TaskContext);
   const [taskName, setTaskName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [taskDays, setTaskDays] = useState([]);
@@ -101,7 +102,7 @@ const TaskForm = () => {
         <TaskFormWrapper>
           <form action="">
             <FlexColumn>
-              <FlexRow justifyContent={"space-between"}>
+              <FlexRow $justifyContent={"space-between"}>
                 <label htmlFor="task-name">Task Name</label>
                 {invalidTaskName && (
                   <Invalid>Task name must not be empty</Invalid>
@@ -117,7 +118,7 @@ const TaskForm = () => {
               />
             </FlexColumn>
             <FlexColumn>
-              <FlexRow justifyContent={"space-between"}>
+              <FlexRow $justifyContent={"space-between"}>
                 <label htmlFor="description">Description</label>
                 {invalidTaskDescription && (
                   <Invalid>Task description must not be empty</Invalid>
@@ -131,7 +132,7 @@ const TaskForm = () => {
               />
             </FlexColumn>
 
-            <FlexRow marginBottom={"0.5rem"}>
+            <FlexRow $marginBottom={"0.5rem"}>
               <div>
                 <input
                   type="radio"
